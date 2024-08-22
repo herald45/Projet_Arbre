@@ -9,17 +9,9 @@ import Playground from './Playground';
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Playground />,
+      element: <div>Helllo Word</div>,
    
     },
-    {
-      path:'/test',
-      element: <div>tHIS IS A TEST </div>,
-    },
-    {
-      path:'/treeFamily',
-      element: <div>ICI on pourra voir l'arbre généalogique</div>
-    }
   ]);
   
   const Router = () => {
