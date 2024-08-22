@@ -1784,6 +1784,18 @@ globalthis@^1.0.3:
     define-properties "^1.2.1"
     gopd "^1.0.1"
 
+gojs-react@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/gojs-react/-/gojs-react-1.1.2.tgz#6e09dd8c2edce10611bd98ca22cfe7b085b679b3"
+  integrity sha512-Er01X0eSYNAdeaR072tivLrmeKKRy062Vjk5/5F/5PhJ17aCNU+XYx/M5jYe9y2ugbSkYDf9IYB7rsOamHdcgA==
+  dependencies:
+    tslib "~2.5.0"
+
+gojs@^3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/gojs/-/gojs-3.0.10.tgz#2997b95e2f003c8472ae89c498e077e67a02214b"
+  integrity sha512-RSx/4JPvLGlJX8bvDkOIe2eIuK/gIzrk6sLyWG6EA99PndBgDPGs/j0y/HBpmg3bSZ8isiENcLpTuQWUXnTScA==
+
 gopd@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/gopd/-/gopd-1.0.1.tgz#29ff76de69dac7489b7c0918a5788e56477c332c"
@@ -3102,6 +3114,11 @@ tsconfig-paths@^3.15.0:
     json5 "^1.0.2"
     minimist "^1.2.6"
     strip-bom "^3.0.0"
+
+tslib@~2.5.0:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.5.3.tgz#24944ba2d990940e6e982c4bea147aba80209913"
+  integrity sha512-mSxlJJwl3BMEQCUNnxXBU9jP4JBktcEGhURcPR6VQVlnP0FdDEsIaz0C35dXNGLyRfrATNofF0F5p2KPxQgB+w==
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
