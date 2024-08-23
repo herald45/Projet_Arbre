@@ -1,0 +1,28 @@
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+build/
+dist/
+
+# ide
+.vscode
+
+# misc
+.DS_Store
+.env*.local
+*.log
+sslconfig.json
+
+*.zip
+
+# Serverless directories
+.serverless
+
+private.md
+
+.cdk.staging
+cdk.out
