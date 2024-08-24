@@ -8,8 +8,8 @@ import Playground from './Playground';
   
   const router = createBrowserRouter([
     {
-      path: '/',
-      element: <div>Helllo Word</div>,
+      path:'/',
+      element: <Playground/>
    
     },
   ]);
