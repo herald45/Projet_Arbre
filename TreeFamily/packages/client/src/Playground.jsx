@@ -11,31 +11,68 @@ import './App.css';  // contains .diagram-component CSS
  */
 
 const initDiagram = () => {
-  const diagram = new go.Diagram();
+  const diagram = new go.Diagram({
+    // Un écouteur d'événement pour l'événement `InitialLayoutCompleted`
+  
+    // Configuration du comportement de la molette de la souris pour zoomer
+    "toolManager.mouseWheelBehavior": go.WheelMode.Zoom,
+  
+    // Définir les données d'un nœud type à créer en cliquant
+    "clickCreatingTool.archetypeNodeData": { text: "new node" },
 
-  const node = new go.Node("Auto").add(
-    new go.Shape("RoundedRectangle",
-        { fill: "lightblue", strokeWidth: 3 }),
-    new go.TextBlock("test!",
-        { margin: 5 })
-  )
-  const shape = new go.Shape();
-  shape.figure = "RoundedRectangle";
-  shape.fill = "lightblue";
-  shape.strokeWidth = 3;
-  node.add(shape);
-  const textblock = new go.TextBlock();
-  textblock.text = "This is a test!";
-  textblock.margin = 5;
-  node.add(textblock);
-  diagram.add(node);
-  return diagram;
+    "isReadOnly": true
+  });
+
+  diagram.nodeTemplate =
+    new go.Node("Auto")
+      .add(
+        new go.Shape("RoundedRectangle", { fill: "lightgray" ,stroke: "black",        // Couleur de la bordure
+          strokeWidth: 2,         // Épaisseur de la bordure
+          parameter1: 1,
+          width: 100,
+          height: 50,
+          }, ),
+        new go.TextBlock()
+          .bind("text", "key")
+      )
+  const nodeDataArray = [
+    { key: "Alpha" },
+    { key: "Beta", parent: "Alpha" },
+    { key: "Gamma", parent: "Beta" },
+    { key: "Delta", parent: "Beta" },
+    { key: "Epsilon", parent: "Alpha" },
+    { key: "Zeta", parent: "Epsilon" },
+    { key: "Eta", parent: "Epsilon" },
+    { key: "Theta", parent: "Epsilon" }
+  ];
+  diagram.model = new go.TreeModel(nodeDataArray);
+
+  const linkDataArray = [
+    { from: "Alpha", to: "Beta" },
+    { from: "Beta", to: "Gamma" },
+    { from: "Beta", to: "Delta" },
+    { from: "Alpha", to: "Epsilon" },
+    { from: "Epsilon", to: "Zeta" },
+    { from: "Epsilon", to: "Eta" },
+    { from: "Epsilon", to: "Theta" }
+  ];
+  
+diagram.linkTemplate =
+  new go.Link({ routing: go.Routing.Orthogonal, corner: 5 })
+    .add(
+      new go.Shape()
+    );
+    diagram.layout = new go.TreeLayout({ angle: 90 });
+
+
+diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+    return diagram;
 }
 
 // render function...
 const Playground = ()  => {
   return (
-    <div>
+    <div id='MyDiagram'>
       <ReactDiagram
         initDiagram={initDiagram}
         divClassName='diagram-component'
